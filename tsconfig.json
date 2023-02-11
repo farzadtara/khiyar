@@ -11,6 +11,11 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators":true,
     "sourceMap": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "noImplicitAny": false,
+    "resolveJsonModule": true,                                
     "baseUrl": ".",
     "types": [
       "webpack-env"
@@ -35,6 +40,8 @@
     "tests/**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/**/*.js",
+    "dist"
   ]
 }
