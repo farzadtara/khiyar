@@ -1,14 +1,25 @@
 <template>
-  <div>
-nice
+  <div id="home" > 
+    <DocumentPage/>
   </div>
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from "vue-property-decorator";
+import DocumentPage from "@/components/DocumentPage.vue";
 
-  @Component
-  export default class Hello extends Vue {
-    
-  }
+@Component({ name: "Home", components: { DocumentPage } })
+export default class Home extends Vue {}
 </script>
+
+<style lang="scss" scoped>
+#home{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  #document-page{
+
+  }
+}
+</style>
+
