@@ -1,15 +1,8 @@
 <template>
-  <div id="document-page">
-    <div id="current-page" class="position-relative">
-      <CorePdfGenerator>
-        <div v-for="(element, index) in elements" :key="index">
-          <CoreElement
-            :type="element.type"
-            :positionX="element.x"
-            :positionY="element.y"
-          />
-        </div>
-      </CorePdfGenerator>
+  <div id="document-page" class="">
+    <div id="current-page" class="position-relative h-100 w-100">
+      <CorePdfGenerator :contentData="elements" />
+      <!-- <corePdfCreator :contentData="elements" /> -->
     </div>
   </div>
 </template>
@@ -18,16 +11,16 @@
 import { Component, Vue } from "vue-property-decorator";
 import { EventBus } from "@/utils/eventBus";
 import { EVENT_BUS } from "@/utils/constance";
-import CoreElement from "./core/CoreElement.vue";
 import CorePdfGenerator from "./core/CorePdfGenerator.vue";
+import corePdfCreator from "@/components/core/corePdfCreator.vue"
 
 @Component({
   name: "DocumentPage",
-  components: { CoreElement, CorePdfGenerator },
+  components: { CorePdfGenerator, corePdfCreator },
 })
 export default class DocumentPage extends Vue {
   elements: { type: string; x: number; y: number }[] = [
-    { type: "text", x: 0, y: 0 },
+    { type: "text", x: 560, y: 900 },
   ];
 
   mounted() {
@@ -41,9 +34,11 @@ export default class DocumentPage extends Vue {
 
 <style scoped lang="scss">
 #document-page {
+  width: 8.27in;
+  height: 11.69in;
+  transform: scale(0.8);
   #current-page {
-    width: calc(37.79527559px * 21);
-    height: calc(37.79527559px * 29.7);
+
     background-color: aliceblue;
   }
 }

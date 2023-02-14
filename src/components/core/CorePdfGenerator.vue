@@ -1,14 +1,14 @@
 <template>
   <div id="core-pdf-generator">
     <vue-html2pdf
-      :show-layout="true"
-      :float-layout="true"
-      :enable-download="true"
+      :show-layout="false"
+      :float-layout="false"
+      :enable-download="false"
       :preview-modal="true"
       :paginate-elements-by-height="1400"
       filename="hee hee"
       :pdf-quality="2"
-      :manual-pagination="false"
+      :manual-pagination=" true"
       pdf-format="a4"
       pdf-orientation="portrait"
       @progress="onProgress($event)"
@@ -16,8 +16,21 @@
       @hasGenerated="hasGenerated($event)"
       ref="html2Pdf"
     >
-      <div slot="pdf-content" class="position-relative">
-        <slot></slot>
+      <div slot="pdf-content" class="h-100 w-100">
+        <div>masdasdasd</div>
+
+        <div
+          id="for"
+          class="h-100 w-100"
+          v-for="(element, index) in contentData"
+          :key="index"
+        >
+          <CoreElement
+            :type="element.type"
+            :positionX="element.x"
+            :positionY="element.y"
+          />
+        </div>
       </div>
     </vue-html2pdf>
   </div>
@@ -25,6 +38,7 @@
 
 <script>
 import VueHtml2pdf from "vue-html2pdf";
+import CoreElement from "@/components/core/CoreElement.vue";
 import { EventBus } from "@/utils/eventBus";
 import { EVENT_BUS } from "@/utils/constance";
 
@@ -32,6 +46,18 @@ export default {
   name: "CorePdfGenerator",
   components: {
     VueHtml2pdf,
+    CoreElement,
+  },
+
+  props: {
+    content: {
+      require: false,
+      default: "this is nice prop",
+    },
+    contentData: {
+      require: false,
+      default: [],
+    },
   },
 
   methods: {
@@ -59,6 +85,7 @@ export default {
   // width: inherit !important;
   // height: inherit !important;
   .layout-container {
+    display: block !important;
     // position: relative !important;
     // width: inherit !important;
     // height: inherit !important;
@@ -68,7 +95,7 @@ export default {
     // background: transparent !important;
     .content-wrapper {
       // width: inherit !important;
-      height: 150px !important;
+      // height: 150px !important;
       > div {
         // width: inherit !important;
         // height: inherit !important;

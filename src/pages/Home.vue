@@ -1,5 +1,5 @@
 <template>
-  <div id="home" > 
+  <div id="home"> 
     <DocumentPage/>
   </div>
 </template>
@@ -17,6 +17,8 @@ export default class Home extends Vue {}
   display: flex;
   justify-content: center;
   align-content: center;
+  align-items: center;
+  overflow: hidden;
   #document-page{
 
   }

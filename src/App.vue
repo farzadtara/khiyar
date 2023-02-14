@@ -18,10 +18,12 @@ export default class App extends Vue {}
 <style lang="scss" scoped>
 #main-app {
   background-color: #4a4a4a;
-  // width: 100%;
   height: 100vh;
-  // overflow: hidden;
   padding: 0.2rem;
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 </style>

@@ -1,5 +1,7 @@
 <template>
-  <div class="position-absolute" :class="classes" :style="styles" draggable> thia is nice</div>
+  <div id="CoreElement" class="position-fixed" :class="classes" :style="styles" draggable>
+    <section>this is moke test conten</section>
+  </div>
 </template>
 
 <script lang="ts">
@@ -18,8 +20,8 @@ export default class CoreElement extends Vue {
 
   get styles() {
     return {
-      top: this.positionX,
-      right: this.positionY,
+      top: `${this.positionY}px`,
+      right: `${this.positionX}px`,
     };
   }
 }
