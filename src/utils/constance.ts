@@ -1,6 +1,10 @@
 export enum EVENT_BUS {
-CREAT_TEXT_AREA = 'creat_text_area',
-PRINT_DOCUMENT = 'print_document',
+    CREATE_TEXT_AREA = 'create_text_area',
+    PRINT_DOCUMENT = 'print_document',
 
 
+}
+
+export enum LOREM_IPSUM {
+    LOREM_IPSUM = 'لورم ایپسوم'
 }

@@ -47,7 +47,7 @@ export default {
         filename: "document.pdf",
         pagesplit: true,
         image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { dpi: 192, letterRendering: true },
+        html2canvas: { dpi: 192, letterRendering: false },
         jsPDF: { unit: "in", format:'a4', orientation: "portrait" },
       };
 
@@ -57,8 +57,8 @@ export default {
 
   mounted() {
     EventBus.$on(EVENT_BUS.PRINT_DOCUMENT, () => {
-      console.log("print");
-    //   this.exportToPDF();
+      // console.log("print");
+      // this.exportToPDF();
     });
   },
 };

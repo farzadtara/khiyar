@@ -1,8 +1,7 @@
 <template>
   <div id="document-page" class="">
     <div id="current-page" class="position-relative h-100 w-100">
-      <CorePdfGenerator :contentData="elements" />
-      <!-- <corePdfCreator :contentData="elements" /> -->
+      <CorePdfFactory :contentData="elements"/>
     </div>
   </div>
 </template>
@@ -11,12 +10,12 @@
 import { Component, Vue } from "vue-property-decorator";
 import { EventBus } from "@/utils/eventBus";
 import { EVENT_BUS } from "@/utils/constance";
-import CorePdfGenerator from "./core/CorePdfGenerator.vue";
-import corePdfCreator from "@/components/core/corePdfCreator.vue"
+import CorePdfFactory from "./core/CorePdfFactory.vue";
+
 
 @Component({
   name: "DocumentPage",
-  components: { CorePdfGenerator, corePdfCreator },
+  components: { CorePdfFactory },
 })
 export default class DocumentPage extends Vue {
   elements: { type: string; x: number; y: number }[] = [
@@ -24,8 +23,7 @@ export default class DocumentPage extends Vue {
   ];
 
   mounted() {
-    EventBus.$on(EVENT_BUS.CREAT_TEXT_AREA, () => {
-      // console.log("object");
+    EventBus.$on(EVENT_BUS.CREATE_TEXT_AREA, () => {
       this.elements.push({ type: "text", x: 10, y: 0 });
     });
   }

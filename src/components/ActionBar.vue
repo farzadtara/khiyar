@@ -21,7 +21,7 @@ import {EVENT_BUS} from '@/utils/constance'
 export default class ActionBar extends Vue {
 
   addTextArea(){
-    EventBus.$emit(EVENT_BUS.CREAT_TEXT_AREA)
+    EventBus.$emit(EVENT_BUS.CREATE_TEXT_AREA)
   }  
   
   printDocument(){
