@@ -3,6 +3,7 @@
     <Navbar />
     <ActionBar />
     <router-view />
+    <DetailSideBar />
   </div>
 </template>
 
@@ -10,13 +11,16 @@
 import { Component, Vue } from "vue-property-decorator";
 import Navbar from "@/components/Navbar.vue";
 import ActionBar from "@/components/ActionBar.vue";
+import DetailSideBar from "./components/DetailSideBar.vue";
 
-@Component({ name: "App", components: { Navbar, ActionBar } })
+
+@Component({ name: "App", components: { Navbar, ActionBar, DetailSideBar } })
 export default class App extends Vue {}
 </script>
 
 <style lang="scss" scoped>
 #main-app {
+  position: relative;
   background-color: #4a4a4a;
   height: 100vh;
   padding: 0.2rem;
