@@ -11,6 +11,7 @@ import { Component, Vue } from "vue-property-decorator";
 import { EventBus } from "@/utils/eventBus";
 import { EVENT_BUS } from "@/utils/constance";
 import CorePdfFactory from "./core/CorePdfFactory.vue";
+import { ApplicationDSModule } from "@/store";
 
 
 @Component({
@@ -21,6 +22,7 @@ export default class DocumentPage extends Vue {
   elements: { type: string; x: number; y: number }[] = [
     { type: "text", x: 560, y: 900 },
   ];
+
 
   mounted() {
     EventBus.$on(EVENT_BUS.CREATE_TEXT_AREA, () => {
