@@ -1,10 +1,10 @@
 <template>
-  <div id="core-select">
-    <select name="pets" id="pet-select">
-      <option v-if="defaultOption" @click="onDefaultOptionClick" value="">
+  <div id="core-select relative">
+    <select class="appearance-none w-full py-1 px-3 my-2 bg-white" name="pets" id="pet-select"  @change="onDefaultOptionClick">
+      <option v-if="defaultOption" @click="onDefaultOptionClick" value="" action="sdsd">
         {{ defaultOption }}
       </option>
-      <option v-for="option in options" :key="option.id" :value="option.id">
+      <option v-for="option in options" :key="option.id" :value="option.id" @click="onDefaultOptionClick">
         {{ option.value }}
       </option>
     </select>
@@ -22,10 +22,16 @@ export default class CoreSelect extends Vue {
   }[];
   @Prop({ required: false, type: String }) defaultOption: string | undefined;
 
-  onDefaultOptionClick() {
-    this.$emit("onDefaultOptiClick");
+  onDefaultOptionClick(e) {
+    console.log("Sdsdsdsds", e.target.action);
+    
+    this.$emit("onDefaultOptionClick");
   }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+#core-select{
+  direction: rtl;
+}
+</style>

@@ -1,10 +1,12 @@
 import { VuexModule, Module, Mutation, Action } from "vuex-module-decorators";
 import { ELEMENT_TYPE, TEXT_ALIGNMENT } from "@/utils/constance";
 
-interface ITemplate {
+export interface ITemplate {
   id: number;
   name: string;
-  schemas: ITextElements[];
+  paperSize: string;
+  orientation: string;
+  schemas?: ITextElements[];
 }
 
 interface ITextElements {
@@ -23,20 +25,22 @@ interface ITextElements {
   alignment: TEXT_ALIGNMENT;
 }
 
-@Module({ namespaced: true, name: "applicationds" })
-export default class ApplicationDS extends VuexModule {
+@Module({ namespaced: true, name: "templateds" })
+export default class TemplateDS extends VuexModule {
   templates: { [key: string]: ITemplate } = {};
 
   @Mutation
   addOrUpdatedTemplate(template: ITemplate) {
-    this.templates = {
-      ...this.templates,
-      [template.id]: { ...template, ...this.templates[template.id] },
-    };
+    // this.templates = {
+    //   ...this.templates,
+    //   [template.id]: { ...template, ...this.templates[template.id] },
+    // };
+    // this.templates.tara(template)
   }
 
-  @Action({ commit: "updatePosts" })
-  async fetchPosts() {
-    //
+  @Action({rawError: true})
+  async createNewTemplate(template: ITemplate) {
+    console.log('template :>> ', template);
+    this.context.commit('addOrUpdatedTemplate',template )
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div id="main-app">
+  <div id="main-app" class="bg-gray-300 relative h-screen p-0.5 flex flex-col justify-center content-center">
     <Navbar />
     <ActionBar />
     <router-view />
@@ -18,16 +18,4 @@ import DetailSideBar from "./components/DetailSideBar.vue";
 export default class App extends Vue {}
 </script>
 
-<style lang="scss" scoped>
-#main-app {
-  position: relative;
-  background-color: #4a4a4a;
-  height: 100vh;
-  padding: 0.2rem;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-}
-</style>
+<style lang="scss" scoped></style>
