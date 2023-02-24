@@ -8,6 +8,26 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities"; 
 
+
+@layer base {
+  :root {
+    --color-light: #cad3e2;
+    --color-dark: #00080a;
+    --color-primary: #911f18;
+    --color-secondary: #a35653;
+    --color-info: #cb908f;
+    --color-accent: #f2c620;
+    --color-success: #599e08;
+    --color-warning: #ffbd60;
+    --color-danger: #da5051;
+    /* ... */
+  }
+}
+
+
+
+
+
 /* ===== Scrollbar CSS ===== */
   /* Firefox */
   * {

@@ -25,8 +25,8 @@ const store: Store<IRootState> = new Vuex.Store<IRootState>({
   }
 })
 
-export default store
+export default store;
 
 
-export const ApplicationDSModule = getModule(ApplicationDS, store)
-export const TemplateDSModule = getModule(TemplateDS, store)
+export const ApplicationDSModule = getModule(ApplicationDS, store);
+export const TemplateDSModule = getModule(TemplateDS, store);

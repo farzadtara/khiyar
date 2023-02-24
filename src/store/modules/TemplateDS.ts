@@ -25,22 +25,22 @@ interface ITextElements {
   alignment: TEXT_ALIGNMENT;
 }
 
-@Module({ namespaced: true, name: "templateds" })
+@Module({ namespaced: true, name: "templateds", stateFactory: true })
 export default class TemplateDS extends VuexModule {
   templates: { [key: string]: ITemplate } = {};
 
-  @Mutation
-  addOrUpdatedTemplate(template: ITemplate) {
-    // this.templates = {
-    //   ...this.templates,
-    //   [template.id]: { ...template, ...this.templates[template.id] },
-    // };
-    // this.templates.tara(template)
+  get templatesAsArray(){
+    console.log('TemplateDSModule.templates :>> ', this.templates);
+    return Object.values(this.templates)
   }
 
-  @Action({rawError: true})
+  @Mutation
+  addOrUpdatedTemplate(template: ITemplate) {
+    this.templates[template.id] = template
+  }
+
+  @Action({ rawError: true })
   async createNewTemplate(template: ITemplate) {
-    console.log('template :>> ', template);
-    this.context.commit('addOrUpdatedTemplate',template )
+    this.context.commit('addOrUpdatedTemplate', template)
   }
 }

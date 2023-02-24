@@ -24,7 +24,7 @@ import CoreInput from "./core/CoreInput.vue";
 import { APP_PERSIAN_TEXT } from "@/utils/constance";
 import { TemplateDSModule } from "@/store";
 import { ITemplate } from "@/store/modules/TemplateDS";
-
+import { uniqueId } from "@/utils/number";
 @Component({ name: "CreateTemplate", components: { CoreBtn, CoreInput } })
 export default class CreateTemplate extends Vue {
   DetailSideBarText = APP_PERSIAN_TEXT;
@@ -59,16 +59,16 @@ export default class CreateTemplate extends Vue {
   createTemplate() {
     const { newTemplateName, newTemplatePaperSize, newTemplateOrientation } =
       this;
+    const id = uniqueId();
+
     const template: ITemplate = {
-      id: 39,
+      id: id,
       name: newTemplateName,
       orientation: newTemplateOrientation,
       paperSize: newTemplatePaperSize,
     };
-    console.log('this.$options :>> ', this.$options);
 
     TemplateDSModule.createNewTemplate(template);
-    console.log('TemplateDSModule.templates :>> ', TemplateDSModule.templates);
   }
 }
 </script>
