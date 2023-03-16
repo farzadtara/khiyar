@@ -30,13 +30,12 @@ export default class TemplateDS extends VuexModule {
   templates: { [key: string]: ITemplate } = {};
 
   get templatesAsArray(){
-    console.log('TemplateDSModule.templates :>> ', this.templates);
     return Object.values(this.templates)
   }
 
   @Mutation
   addOrUpdatedTemplate(template: ITemplate) {
-    this.templates[template.id] = template
+    this.templates = {...this.templates, [template.id]:template}
   }
 
   @Action({ rawError: true })
