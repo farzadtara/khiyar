@@ -17,6 +17,7 @@
     "autoprefixer": "^9.8.8",
     "babel-plugin-transform-decorators": "^6.24.1",
     "core-js": "^3.16.0",
+    "css.gg": "^2.0.0",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.10.1",
     "jspdf": "^2.5.1",

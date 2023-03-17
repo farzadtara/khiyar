@@ -1,12 +1,7 @@
 <template>
   <div>
-    <!-- <button
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-      type="button"
-    >
-      Sign In
-    </button> -->
     <component
+      :id="uniqueId"
       :is="bottomType"
       v-bind="$attrs"
       :class="[classes]"
@@ -15,11 +10,11 @@
       :disable="isDisable"
     >
       <span v-if="rightIcon" class="btn-label">
-        <i class="bi" :class="`bi-${rightIcon}`"></i>
+        <i :class="`gg-${rightIcon}`"></i>
       </span>
       <span class="text-btn"> {{ nameBtn }} </span>
       <span v-if="leftIcon" class="btn-label">
-        <i class="bi" :class="`bi-${leftIcon}`"></i>
+        <i :class="`gg-${leftIcon}`"></i>
       </span>
 
       <CoreSpinner v-if="isDisable && loading" />
@@ -28,10 +23,11 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Ref, Emit } from "vue-property-decorator";
+import { Component, Prop, Emit, Mixins } from "vue-property-decorator";
+import UniqueId from "@/mixins/UniqueId";
 
 @Component({ name: "CoreBtn" })
-export default class CoreBtn extends Vue {
+export default class CoreBtn extends Mixins(UniqueId) {
   @Prop({ required: true, default: "Button", type: String }) nameBtn!: string;
   /// type : button reset submit
   @Prop({ required: false, default: "button", type: String }) type!: string;
@@ -77,6 +73,7 @@ export default class CoreBtn extends Vue {
 </script>
 
 <style scoped>
+/* @import url(css.gg/icons/css/push-chevron-down.css); */
 .cursor-not-allowed {
   cursor: not-allowed !important;
 }
